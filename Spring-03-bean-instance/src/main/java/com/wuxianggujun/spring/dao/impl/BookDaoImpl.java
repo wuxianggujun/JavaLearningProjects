@@ -4,7 +4,7 @@ import com.wuxianggujun.spring.dao.BookDao;
 
 public class BookDaoImpl implements BookDao {
 
-    private BookDaoImpl() {
+   public BookDaoImpl() {
         System.out.println("book dao constructor is running ......");
     }
 
