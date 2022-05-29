@@ -12,6 +12,12 @@
        -->
     <bean id="bookDao" class="com.wuxianggujun.spring_ioc_simple.dao.impl.BookDaoImpl"/>
 
-    <bean id="bookService" class="com.wuxianggujun.spring_ioc_simple.service.impl.BookServiceImpl"/>
+    <bean id="bookService" class="com.wuxianggujun.spring_ioc_simple.service.impl.BookServiceImpl">
+        <!--配置Service与Dao的关系-->
+        <!--  property标签表示配置当前bean的属性
+              name标签表示配置哪一个具体的属性
+              ref属性表示参照哪一个bean-->
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
 
 </beans>
