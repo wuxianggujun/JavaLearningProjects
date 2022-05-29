@@ -9,10 +9,19 @@
     <!--   bean标签标示配置beans
        ID属性标签标示给bean起名字
        Class属性表示给bean定义类型
+       scope 定义bean的作用范围 通俗来讲就是创建的对象是单利还是非单利，bean默认单利
+       适合交给容器进行管理的bean
+       表现层对象
+       业务层对象
+       数据层对象
+       工具对象
+       不适合交给容器进行管理的bean
+       封装实体的域对象
        -->
-    <bean id="bookDao" class="com.wuxianggujun.spring_ioc_simple.dao.impl.BookDaoImpl"/>
+    <bean id="bookDao" name="dao" class="com.wuxianggujun.spring_ioc_simple.dao.impl.BookDaoImpl" scope="prototype"/>
 
-    <bean id="bookService" class="com.wuxianggujun.spring_ioc_simple.service.impl.BookServiceImpl">
+    <bean id="bookService" name="service service2 bookEbi"
+          class="com.wuxianggujun.spring_ioc_simple.service.impl.BookServiceImpl">
         <!--配置Service与Dao的关系-->
         <!--  property标签表示配置当前bean的属性
               name标签表示配置哪一个具体的属性
