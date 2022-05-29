@@ -2,5 +2,9 @@ package com.wuxianggujun.spring.dao.impl;
 
 import com.wuxianggujun.spring.dao.UserDao;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
+    @Override
+    public void save() {
+        System.out.println("user dao save....");
+    }
 }

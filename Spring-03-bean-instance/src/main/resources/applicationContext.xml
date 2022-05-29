@@ -9,5 +9,7 @@
     <!--方式二：使用静态工厂实例化bean-->
     <bean id="orderDao" class="com.wuxianggujun.spring.factory.OrderDaoFactory" factory-method="getOrderDao"/>
 
-
+    <!--方式三：使用实例化工厂实例bean-->
+    <bean id="userDaoFactory" class="com.wuxianggujun.spring.factory.UserDaoFactory"/>
+    <bean id="userDao"  factory-method="getUserDao" factory-bean="userDaoFactory"/>
 </beans>
