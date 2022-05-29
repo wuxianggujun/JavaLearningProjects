@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--导入spring的坐标Spring-context 对应版本是5.2.10.RELEASE-->
+
+    <!--配置bean-->
+
+    <!--   bean标签标示配置beans
+       ID属性标签标示给bean起名字
+       Class属性表示给bean定义类型
+       -->
+    <bean id="bookDao" class="com.wuxianggujun.spring_ioc_simple.dao.impl.BookDaoImpl"/>
+
+    <bean id="bookService" class="com.wuxianggujun.spring_ioc_simple.service.impl.BookServiceImpl"/>
+
+</beans>
