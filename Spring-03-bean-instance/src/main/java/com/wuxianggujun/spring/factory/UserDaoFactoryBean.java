@@ -1,4 +1,4 @@
 package com.wuxianggujun.spring.factory;
 
-public class AppForInstanceOrder {
+public class UserDaoFactoryBean {
 }

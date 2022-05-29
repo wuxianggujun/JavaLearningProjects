@@ -1,4 +1,4 @@
-package com.wuxianggujun.spring.factory;
+package com.wuxianggujun.spring;
 
 import com.wuxianggujun.spring.dao.BookDao;
 import org.springframework.context.ApplicationContext;
