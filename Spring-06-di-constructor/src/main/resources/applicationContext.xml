@@ -14,7 +14,8 @@
     <!--        <constructor-arg name="userDao" ref="userDao"/>-->
     <!--    </bean>-->
 
-    <!--    <bean id="bookDao" class="com.wuxianggujun.spring.dao.impl.BookDaoImpl">-->
+    <!--  解决了形参名的问题，与形参名不耦合
+      <bean id="bookDao" class="com.wuxianggujun.spring.dao.impl.BookDaoImpl">-->
     <!--        <constructor-arg type="int" value="100"/>-->
     <!--        <constructor-arg type="java.lang.String" value="我是数据库"/>-->
     <!--    </bean>-->
@@ -24,10 +25,10 @@
     <!--        <constructor-arg name="bookDao" ref="bookDao"/>-->
     <!--        <constructor-arg name="userDao" ref="userDao"/>-->
     <!--    </bean>-->
-
+    <!--解决参数的类型重复问题，使用位置-->
     <bean id="bookDao" class="com.wuxianggujun.spring.dao.impl.BookDaoImpl">
-        <constructor-arg type="int" value="100"/>
-        <constructor-arg type="java.lang.String" value="我是数据库"/>
+        <constructor-arg index="1" value="100"/>
+        <constructor-arg index="0" value="我是数据库"/>
     </bean>
     <bean id="userDao" class="com.wuxianggujun.spring.dao.impl.UserDaoImpl"/>
 
