@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookDao" class="com.wuxianggujun.spring.dao.impl.BookDaoImpl">
+        <property name="array">
+            <array>
+                <value>100</value>
+                <value>200</value>
+                <value>300</value>
+                <value>400</value>
+                <value>500</value>
+                <!--   引用类型     <ref bean="bookDao"/>-->
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>wuxiang</value>
+                <value>gujun</value>
+                <value>zui</value>
+                <value>li</value>
+                <value>hai</value>
+            </list>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>wuxiang</value>
+                <value>gujun</value>
+                <value>zui</value>
+                <value>li</value>
+                <value>hai</value>
+                <!--重复会被过滤-->
+                <value>hai</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="country" value="china"/>
+                <entry key="province" value="jiangxi"/>
+                <entry key="city" value="ganzhou"/>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="country">china</prop>
+                <prop key="province">jiangxi</prop>
+                <prop key="city">ganzhou</prop>
+            </props>
+        </property>
+
+    </bean>
+
+</beans>
