@@ -2,20 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>JavaLearningProjects</artifactId>
+        <groupId>com.wuxianggujun</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.wuxianggujun</groupId>
-    <artifactId>JavaLearningProjects</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>Socket</module>
-        <module>Spring-IoC-simple</module>
-        <module>Spring-03-bean-instance</module>
-        <module>Spring-04-bean-lifecycle</module>
-        <module>Spring-05-di-set</module>
-        <module>Spring-06-di-constructor</module>
-    </modules>
+    <artifactId>Spring-06-di-constructor</artifactId>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>

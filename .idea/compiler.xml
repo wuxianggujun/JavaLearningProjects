@@ -10,6 +10,7 @@
         <module name="Spring-02-IoC-base-simple" />
         <module name="Spring-04-bean-lifecycle" />
         <module name="Socket" />
+        <module name="Spring-06-di-constructor" />
         <module name="Spring-03-bean-instance" />
       </profile>
     </annotationProcessing>
