@@ -14,4 +14,27 @@
     <!--        <constructor-arg name="userDao" ref="userDao"/>-->
     <!--    </bean>-->
 
+    <!--    <bean id="bookDao" class="com.wuxianggujun.spring.dao.impl.BookDaoImpl">-->
+    <!--        <constructor-arg type="int" value="100"/>-->
+    <!--        <constructor-arg type="java.lang.String" value="我是数据库"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="userDao" class="com.wuxianggujun.spring.dao.impl.UserDaoImpl"/>-->
+
+    <!--    <bean id="bookService" class="com.wuxianggujun.spring.service.impl.BookServiceImpl">-->
+    <!--        <constructor-arg name="bookDao" ref="bookDao"/>-->
+    <!--        <constructor-arg name="userDao" ref="userDao"/>-->
+    <!--    </bean>-->
+
+    <bean id="bookDao" class="com.wuxianggujun.spring.dao.impl.BookDaoImpl">
+        <constructor-arg type="int" value="100"/>
+        <constructor-arg type="java.lang.String" value="我是数据库"/>
+    </bean>
+    <bean id="userDao" class="com.wuxianggujun.spring.dao.impl.UserDaoImpl"/>
+
+    <bean id="bookService" class="com.wuxianggujun.spring.service.impl.BookServiceImpl">
+        <constructor-arg name="bookDao" ref="bookDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+
+
 </beans>
