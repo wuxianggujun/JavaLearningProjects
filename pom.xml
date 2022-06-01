@@ -22,6 +22,7 @@
         <module>Spring-10-container</module>
         <module>Spring-11-annotation-bean</module>
         <module>Spring-12-annotation-bean-manager</module>
+        <module>Spring-13-annotation-di</module>
     </modules>
 
     <properties>
