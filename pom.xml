@@ -20,6 +20,7 @@
         <module>Spring-09-datasource</module>
         <module>Test</module>
         <module>Spring-10-container</module>
+        <module>Spring-11-annotation-bean</module>
     </modules>
 
     <properties>

@@ -13,6 +13,7 @@
         <module name="Spring-09-datasource" />
         <module name="Test" />
         <module name="Spring-05-di-set" />
+        <module name="Spring-11-annotation-bean" />
         <module name="Spring-08-di-conllection" />
         <module name="Socket" />
         <module name="Spring-06-di-constructor" />
