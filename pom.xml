@@ -21,6 +21,7 @@
         <module>Test</module>
         <module>Spring-10-container</module>
         <module>Spring-11-annotation-bean</module>
+        <module>Spring-12-annotation-bean-manager</module>
     </modules>
 
     <properties>
