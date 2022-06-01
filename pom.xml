@@ -19,6 +19,7 @@
         <module>Spring-08-di-conllection</module>
         <module>Spring-09-datasource</module>
         <module>Test</module>
+        <module>Spring-10-container</module>
     </modules>
 
     <properties>
