@@ -10,6 +10,7 @@
         <module name="Spring-02-IoC-base-simple" />
         <module name="Spring-04-bean-lifecycle" />
         <module name="Spring-09-datasource" />
+        <module name="Test" />
         <module name="Spring-05-di-set" />
         <module name="Spring-08-di-conllection" />
         <module name="Socket" />
