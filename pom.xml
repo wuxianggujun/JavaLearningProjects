@@ -23,6 +23,7 @@
         <module>Spring-11-annotation-bean</module>
         <module>Spring-12-annotation-bean-manager</module>
         <module>Spring-13-annotation-di</module>
+        <module>Spring-14-annotation-third-bean-manager</module>
     </modules>
 
     <properties>
