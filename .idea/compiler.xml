@@ -8,7 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-04-bean-lifecycle" />
         <module name="Spring-12-annotation-bean-manager" />
+        <module name="Spring-17-aop-demo" />
         <module name="Spring-13-annotation-di" />
+        <module name="Spring-18-quickstart" />
         <module name="Spring-11-annotation-bean" />
         <module name="Spring-08-di-conllection" />
         <module name="Spring-06-di-constructor" />

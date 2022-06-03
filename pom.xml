@@ -25,6 +25,8 @@
         <module>Spring-13-annotation-di</module>
         <module>Spring-14-annotation-third-bean-manager</module>
         <module>Spring-15-spring-mybatis</module>
+        <module>Spring-17-aop-demo</module>
+        <module>Spring-18-quickstart</module>
     </modules>
 
     <properties>
