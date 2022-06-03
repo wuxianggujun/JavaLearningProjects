@@ -19,6 +19,7 @@
         <module name="Spring-14-annotation-third-bean-manager" />
         <module name="Test" />
         <module name="Spring-05-di-set" />
+        <module name="Spring-15-spring-mybatis" />
         <module name="Socket" />
         <module name="Spring-03-bean-instance" />
       </profile>

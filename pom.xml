@@ -24,6 +24,7 @@
         <module>Spring-12-annotation-bean-manager</module>
         <module>Spring-13-annotation-di</module>
         <module>Spring-14-annotation-third-bean-manager</module>
+        <module>Spring-15-spring-mybatis</module>
     </modules>
 
     <properties>
