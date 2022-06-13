@@ -27,6 +27,7 @@
         <module>Spring-15-spring-mybatis</module>
         <module>Spring-17-aop-demo</module>
         <module>Spring-18-quickstart</module>
+        <module>HttpServer-v1.0</module>
     </modules>
 
     <properties>
