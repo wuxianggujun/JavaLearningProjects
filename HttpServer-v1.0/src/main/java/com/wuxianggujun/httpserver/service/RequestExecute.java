@@ -1,5 +1,7 @@
 package com.wuxianggujun.httpserver.service;
 
+import com.wuxianggujun.httpserver.data.Data;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -18,6 +20,7 @@ public class RequestExecute extends Thread {
 
     @Override
     public void run() {
+
         //从Socket中取出输入流，然后从输入流中取出数据
         InputStream in = null;//将字节输入流转换为缓冲字符输入流
         InputStreamReader reader = null;//转换流
@@ -26,6 +29,25 @@ public class RequestExecute extends Thread {
         OutputStream out = null;
         PrintWriter printWriter = null;
 
+        //先判断服务器是否处于暂停状态
+        if (Data.isPush) {
+            try {
+                printWriter = new PrintWriter(socket.getOutputStream());
+                //没有资源名称
+                printWriter.println("HTTP/1.1 200 OK");//输出响应行
+                printWriter.println("Content-Type: text/html;charset=utf-8");
+                //输出空行
+                printWriter.println();//表示响应头结束，开始响应内容
+                printWriter.println("<h2>Http Server is Pause</h2>");
+                printWriter.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                printWriter.close();
+            }
+            return;
+        }
         try {
             //从Socket中获取字节输出流
             out = socket.getOutputStream();
@@ -81,7 +103,57 @@ public class RequestExecute extends Thread {
                     printWriter.println("<h2>Index Http Server</h2>");
                     printWriter.flush();
 
-                }else{
+                } else {
+
+                    //查找资源
+                    //取出后缀
+                    String ext = reqPath.substring(reqPath.lastIndexOf(".") + 1);
+                    reqPath = reqPath.substring(1);//除去前面的/
+                    //判断是在根目录下还是在其他目录下
+                    if (reqPath.contains("/")) {
+                        //子目录下
+
+                        File file = new File(Data.resourcePath + reqPath);
+                        if (file.exists() && file.isFile()) {
+                            //文件存在
+                            response200(out, file.getName(), ext);
+                        } else {
+                            response404(out);
+                        }
+                        //输出响应行
+
+                    } else {
+                        //根目录下
+                        //判断资源是否存在
+                        //获取根目录下的所有文件的名称
+                        File root = new File(Data.resourcePath);
+                        if (root.isDirectory()) {
+                            File[] list = root.listFiles();
+                            boolean isExist = false;//标记访问的资源是否存在
+
+                            for (File file : list) {
+                                if (file.isFile() && file.getName().equals(reqPath + "." + ext)) {
+                                    //文件存在
+                                    isExist = true;
+                                    break;
+                                }
+                            }
+                            if (isExist) {
+                                //文件存在
+                                response200(out, Data.resourcePath + reqPath, ext);
+                            } else {
+                                //文件不存在
+                                response404(out);
+                            }
+
+
+                        } else {
+                            //根目录不存在
+                            printWriter.println("HTTP/1.1 404 Not Found");//输出响应行
+                        }
+
+
+                    }
 
                 }
 
@@ -104,4 +176,99 @@ public class RequestExecute extends Thread {
 
 
     }
+
+    /**
+     * 将指定的文件输出到输出流中
+     */
+    private void response200(OutputStream out, String filePath, String ext) {
+        PrintWriter printWriter = null;
+        //准备输入流读取磁盘上的文件
+        InputStream in = null;
+        InputStreamReader reader = null;
+        BufferedReader bufferedReader = null;
+
+        try {
+
+            if (ext.equals("jpg") || ext.equals("png") || ext.equals("gif")) {
+                out.write("HTTP/1.1 200 OK\r\n".getBytes());//输出响应行
+                out.write(new StringBuilder().append("Content-Type: image/").append(ext).append("\r\n").toString().getBytes());
+                out.write("\r\n".getBytes());//表示响应头结束，开始响应内容
+                //创建输入流
+                in = new FileInputStream(filePath);
+                int len = -1;
+                byte[] bytes = new byte[1024];
+                while ((len = in.read(bytes)) != -1) {
+                    out.write(bytes, 0, len);
+                    out.flush();
+                }
+            } else if (ext.equals("html") || ext.equals("htm") || ext.equals("js") || ext.equals("css") || ext.equals("json")) {
+                printWriter = new PrintWriter(out);
+
+                printWriter.println("HTTP/1.1 200 OK");//输出响应行
+                printWriter.println("Content-Type: text/html;charset=utf-8");
+                if (ext.equals("js"))
+                    printWriter.println("Content-Type: application/javascript;charset=utf-8");
+                else if (ext.equals("css"))
+                    printWriter.println("Content-Type: text/css;charset=utf-8");
+                else if (ext.equals("htm") || ext.equals("html"))
+                    printWriter.println("Content-Type: text/html;charset=utf-8");
+                else if (ext.equals("json"))
+                    printWriter.println("Content-Type: application/json;charset=utf-8");
+
+                printWriter.println();//表示响应头结束，开始响应内容
+
+                in = new FileInputStream(filePath);
+                reader = new InputStreamReader(in);
+                bufferedReader = new BufferedReader(reader);
+                //写出数据
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    printWriter.println(line);
+                    printWriter.flush();
+                }
+
+
+            } else {
+                response404(out);
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (printWriter != null) printWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    /**
+     * 响应404
+     */
+    private void response404(OutputStream out) {
+        PrintWriter printWriter = null;
+        try {
+            printWriter = new PrintWriter(out);
+
+            printWriter.println("HTTP/1.1 404");//输出响应行
+            printWriter.println("Content-Type: text/html;charset=utf-8");
+            //输出空行
+            printWriter.println();//表示响应头结束，开始响应内容
+            printWriter.println("<h2>Resource Not Found!</h2>");
+            printWriter.flush();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (printWriter != null) printWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
