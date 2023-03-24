@@ -10,11 +10,14 @@
         <module name="Spring-04-bean-lifecycle" />
         <module name="HttpServer-v1.0" />
         <module name="Spring-12-annotation-bean-manager" />
+        <module name="TryDemo" />
         <module name="Spring-17-aop-demo" />
+        <module name="Spring-IoC-simple" />
         <module name="Spring-13-annotation-di" />
         <module name="Spring-18-quickstart" />
         <module name="Spring-11-annotation-bean" />
         <module name="Spring-08-di-conllection" />
+        <module name="MiniIOC" />
         <module name="Spring-06-di-constructor" />
         <module name="Spring-07-di-autoware" />
         <module name="Spring-02-IoC-base-simple" />
@@ -23,6 +26,7 @@
         <module name="Spring-14-annotation-third-bean-manager" />
         <module name="Test" />
         <module name="Spring-05-di-set" />
+        <module name="HttpServer-v1" />
         <module name="Spring-15-spring-mybatis" />
         <module name="Socket" />
         <module name="Spring-03-bean-instance" />

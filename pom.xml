@@ -29,6 +29,8 @@
         <module>Spring-18-quickstart</module>
         <module>HttpServer-v1.0</module>
         <module>Guice-Inject</module>
+        <module>MiniIOC</module>
+        <module>TryDemo</module>
     </modules>
 
     <properties>

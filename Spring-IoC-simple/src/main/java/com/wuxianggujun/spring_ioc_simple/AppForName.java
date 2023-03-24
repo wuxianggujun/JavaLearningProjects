@@ -1,6 +1,7 @@
 package com.wuxianggujun.spring_ioc_simple;
 
 import com.wuxianggujun.spring_ioc_simple.service.BookService;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
